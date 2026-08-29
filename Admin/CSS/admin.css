@@ -1,0 +1,636 @@
+/* ==========================================================================
+   Nassee Admin Nexus — Futuristic Cyber Glass Styles
+   ========================================================================== */
+
+:root {
+    --bg-dark: #070913;
+    --panel-glass: rgba(18, 22, 41, 0.65);
+    --border-glow: rgba(139, 92, 246, 0.25);
+    --neon-purple: #a855f7;
+    --neon-pink: #ec4899;
+    --neon-cyan: #06b6d4;
+    --text-bright: #f8fafc;
+    --text-sub: #94a3b8;
+}
+
+body.admin-body {
+    background-color: var(--bg-dark);
+    color: var(--text-bright);
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* خلفية توهج أورورا الحية */
+.ambient-glow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(140px);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    animation: pulseGlow 10s infinite alternate ease-in-out;
+}
+
+.glow-1 { top: -10%; right: -5%; width: 500px; height: 500px; background: var(--neon-purple); }
+.glow-2 { bottom: -10%; left: -5%; width: 600px; height: 600px; background: #3b82f6; }
+.glow-3 { top: 40%; left: 30%; width: 450px; height: 450px; background: var(--neon-pink); opacity: 0.25; }
+
+@keyframes pulseGlow {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.2) translate(30px, -40px); }
+}
+
+/* تخطيط اللوحة */
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* الشريط الجانبي الفاخر */
+.sidebar-glass {
+    width: 280px;
+    background: var(--panel-glass);
+    border-left: 1px solid var(--border-glow);
+    backdrop-filter: blur(25px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 1.5rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.brand-icon {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+.brand h2 {
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 900;
+}
+
+.brand h2 span { color: var(--neon-cyan); }
+.brand h2 small { font-size: 0.6rem; letter-spacing: 2px; color: var(--neon-pink); display: block; }
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 2rem;
+    flex-grow: 1;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.2rem;
+    color: var(--text-sub);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+.menu-item:hover, .menu-item.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-glow);
+    transform: translateX(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.menu-item.active {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(6, 182, 212, 0.1));
+    border-color: var(--neon-purple);
+}
+
+.menu-item.logout { color: #ef4444; margin-top: auto; }
+.menu-item.logout:hover { background: rgba(239, 68, 68, 0.15); border-color: #ef4444; }
+
+.admin-profile-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.8rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-glow);
+}
+
+.admin-profile-badge .avatar {
+    font-size: 1.5rem;
+    background: var(--bg-dark);
+    padding: 0.5rem;
+    border-radius: 12px;
+}
+
+.admin-profile-badge h4 { margin: 0; font-size: 0.95rem; }
+.admin-profile-badge p { margin: 0; font-size: 0.75rem; color: var(--neon-cyan); }
+
+/* المنطقة الرئيسية */
+.main-content {
+    flex-grow: 1;
+    padding: 2.5rem 3rem;
+    overflow-y: auto;
+}
+
+.top-nexus {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.glitch-text {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin: 0;
+    background: linear-gradient(135deg, #fff 30%, var(--neon-purple) 70%, var(--neon-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle { color: var(--text-sub); margin-top: 0.3rem; font-size: 0.95rem; }
+
+.btn-cyan-glow {
+    background: linear-gradient(135deg, var(--neon-cyan), #3b82f6);
+    color: #fff;
+    padding: 0.9rem 1.8rem;
+    border-radius: 16px;
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-cyan-glow:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 0 35px rgba(6, 182, 212, 0.7);
+}
+
+/* بطاقات الإحصائيات المائلة (KPIs) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.kpi-card {
+    background: var(--panel-glass);
+    border: 1px solid var(--border-glow);
+    border-radius: 24px;
+    padding: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    backdrop-filter: blur(20px);
+    transition: transform 0.1s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.kpi-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px var(--border-glow);
+}
+
+.kpi-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    font-size: 1.8rem;
+}
+
+.icon-purple { background: rgba(168, 85, 247, 0.15); border: 1px solid var(--neon-purple); }
+.icon-pink { background: rgba(236, 72, 153, 0.15); border: 1px solid var(--neon-pink); }
+.icon-cyan { background: rgba(6, 182, 212, 0.15); border: 1px solid var(--neon-cyan); }
+
+.kpi-title { color: var(--text-sub); font-size: 0.85rem; font-weight: 600; }
+.kpi-data h3 { font-size: 1.8rem; font-weight: 900; margin: 0.2rem 0 0 0; }
+.kpi-data h3 small { font-size: 0.9rem; color: var(--text-sub); }
+
+/* جدول الكائنات الخيالي */
+.table-nexus-container {
+    background: var(--panel-glass);
+    border: 1px solid var(--border-glow);
+    border-radius: 24px;
+    padding: 2rem;
+    backdrop-filter: blur(25px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+.nexus-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.nexus-header h3 { margin: 0; font-size: 1.3rem; font-weight: 800; }
+
+.live-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #10b981;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #10b981;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+.table-wrapper { overflow-x: auto; }
+
+.nexus-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: right;
+}
+
+.nexus-table th {
+    padding: 1.2rem;
+    color: var(--text-sub);
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border-glow);
+}
+
+.nexus-table td {
+    padding: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    vertical-align: middle;
+}
+
+.row-hover { transition: background 0.3s ease; }
+.row-hover:hover { background: rgba(255, 255, 255, 0.03); }
+
+.prod-cell { display: flex; align-items: center; gap: 1rem; }
+.img-wrapper img { width: 55px; height: 55px; border-radius: 14px; object-fit: cover; border: 1px solid var(--border-glow); }
+
+.prod-name { display: block; font-size: 1rem; }
+.prod-id { font-size: 0.75rem; color: var(--text-sub); }
+
+.category-tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glow);
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.price-tag { font-weight: 800; color: var(--neon-cyan); font-size: 1.1rem; }
+
+.status-badge.active {
+    color: #34d399;
+    background: rgba(52, 211, 153, 0.1);
+    padding: 0.3rem 0.7rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.actions-group { display: flex; gap: 0.6rem; }
+
+.action-btn {
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.action-btn.edit {
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.action-btn.edit:hover { background: #38bdf8; color: #000; box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); }
+
+.action-btn.delete {
+    background: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.action-btn.delete:hover { background: #ef4444; color: #fff; box-shadow: 0 0 15px rgba(239, 68, 68, 0.5); }
+
+
+/* ==========================================================================
+   Add Product Cyber Glass Styles
+   ========================================================================== */
+
+.add-card-container {
+    background: var(--panel-glass);
+    border: 1px solid var(--border-glow);
+    border-radius: 28px;
+    padding: 2.5rem;
+    backdrop-filter: blur(30px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    max-width: 900px;
+    margin: 0 auto;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.input-group label {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-bright);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.input-icon {
+    font-size: 1.1rem;
+}
+
+.input-group input,
+.input-group textarea {
+    background: rgba(7, 9, 19, 0.6);
+    border: 1px solid var(--border-glow);
+    color: var(--text-bright);
+    padding: 1rem 1.2rem;
+    border-radius: 16px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+    background: rgba(7, 9, 19, 0.85);
+}
+
+/* منطقة السحب والإسقاط (Drop Zone) */
+.drop-zone {
+    border: 2px dashed var(--border-glow);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.3s ease;
+}
+
+.drop-zone:hover, .drop-zone.drag-over {
+    border-color: var(--neon-purple);
+    background: rgba(168, 85, 247, 0.08);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
+}
+
+.file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-icon {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.drop-zone-content h4 {
+    margin: 0.4rem 0;
+    font-size: 1.1rem;
+}
+
+.drop-zone-content .highlight {
+    color: var(--neon-cyan);
+    text-decoration: underline;
+}
+
+.drop-zone-content p {
+    color: var(--text-sub);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* معاينة الصورة المرفوعة */
+.image-preview-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.image-preview-wrapper img {
+    max-height: 220px;
+    border-radius: 16px;
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.remove-img-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(239, 68, 68, 0.85);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+}
+
+.remove-img-btn:hover {
+    background: #ef4444;
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.mb-2 {
+    margin-bottom: 1.5rem;
+}
+
+/* الأزرار والإجراءات */
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2.2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-submit {
+    flex-grow: 1;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.05rem;
+}
+
+.btn-cancel {
+    color: var(--text-sub);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.btn-cancel:hover {
+    color: #ef4444;
+}
+
+/* التجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .full-width {
+        grid-column: span 1;
+    }
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.stat-card {
+    background: rgba(15, 15, 25, 0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.stat-info h3 {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    margin-bottom: 0.3rem;
+}
+
+.stat-value {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+}
+
+.stat-value-text {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 170px;
+}
+
+.stat-sub {
+    display: block;
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 0.4rem;
+}
+
+/* ألوان الأوهام المضيئة لكل بطاقة */
+.stat-card.cyan { border-color: rgba(0, 243, 255, 0.3); }
+.stat-card.cyan:hover { box-shadow: 0 0 20px rgba(0, 243, 255, 0.2); }
+
+.stat-card.yellow { border-color: rgba(255, 230, 0, 0.3); }
+.stat-card.yellow:hover { box-shadow: 0 0 20px rgba(255, 230, 0, 0.2); }
+
+.stat-card.purple { border-color: rgba(168, 85, 247, 0.3); }
+.stat-card.purple:hover { box-shadow: 0 0 20px rgba(168, 85, 247, 0.2); }
+
+.stat-card.green { border-color: rgba(0, 255, 128, 0.3); }
+.stat-card.green:hover { box-shadow: 0 0 20px rgba(0, 255, 128, 0.2); }
+
+.stat-card.magenta { border-color: rgba(255, 0, 127, 0.3); }
+.stat-card.magenta:hover { box-shadow: 0 0 20px rgba(255, 0, 127, 0.2); }
+
+.stat-card.blue { border-color: rgba(59, 130, 246, 0.3); }
+.stat-card.blue:hover { box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); }
+
