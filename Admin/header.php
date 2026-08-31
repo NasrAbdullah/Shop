@@ -17,11 +17,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 <header class="admin-site-header">
     <div class="admin-header-container">
         
-        <!-- شعار لوحة التحكم -->
-        <a href="index.php" class="admin-logo">
-            NASSEE <span>ADMIN ⚙️</span>
-        </a>
-
+        
         <!-- روابط القائمة الرئيسية للأدمن -->
         <nav class="admin-nav">
             <a href="index.php" class="admin-link <?php echo ($current_page == 'index.php') ? 'active' : ''; ?>">الرئيسية 📊</a>
@@ -29,12 +25,16 @@ $current_page = basename($_SERVER['PHP_SELF']);
             <a href="add-product.php" class="admin-link <?php echo ($current_page == 'add-product.php') ? 'active' : ''; ?>">إضافة منتج ➕</a>
             <a href="orders.php" class="admin-link <?php echo ($current_page == 'orders.php') ? 'active' : ''; ?>">إدارة الطلبات 🛒</a>
         </nav>
-
+        
         <!-- أدوات التحكم والعودة للمتجر -->
         <div class="admin-actions">
             <a href="../index.php" class="btn-store-view" target="_blank">معاينة المتجر 🌐</a>
             <a href="../logout.php" class="btn-admin-logout">خروج 🚪</a>
         </div>
+        <!-- شعار لوحة التحكم -->
+        <a href="index.php" class="admin-logo">
+            NASSEE <span>ADMIN ⚙️</span>
+        </a>
 
     </div>
 </header>

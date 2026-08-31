@@ -11,6 +11,28 @@ $result = mysqli_query($conn, $sql);
 
 $cart_count = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
 
+
+// حساب عدد المنتجات في سلة المستخدم الحالي من قاعدة البيانات مباشرة لعرضها في الهيدر
+$cart_count = 0;
+if (isset($_SESSION['user_id'])) {
+    $uid = (int)$_SESSION['user_id'];
+    // جلب الـ cart_id للمستخدم
+    $c_query = mysqli_query($conn, "SELECT id FROM cart WHERE user_id = '$uid'");
+    if ($c_query && mysqli_num_rows($c_query) > 0) {
+        $c_data = mysqli_fetch_assoc($c_query);
+        $cid = $c_data['id'];
+        
+        // حساب مجموع الكميات في جدول cart_items
+        $count_query = mysqli_query($conn, "SELECT SUM(quantity) AS total_items FROM cart_items WHERE cart_id = '$cid'");
+        if ($count_query) {
+            $count_data = mysqli_fetch_assoc($count_query);
+            $cart_count = (int)($count_data['total_items'] ?? 0);
+        }
+    }
+}
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -44,7 +66,7 @@ $cart_count = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
                     <span class="cart-badge"><?php echo $cart_count; ?></span>
                 <?php endif; ?>
             </a>
-
+          
             <?php if (isset($_SESSION['user_id'])): ?>
                 <a href="my_orders.php" class="nav-link">طلباتي 📦</a>
                 

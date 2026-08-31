@@ -53,12 +53,22 @@ include_once "./includes/header.php";
                             <span class="price">$<?php echo htmlspecialchars($product['price']); ?></span>
 
                         </div>
-                        <form action="cart.php" method="post" style="margin-top: 1rem;">
+                        <form action="cart.php" method="POST" style="margin-top: 1rem;">
+                            <!-- نوع الإجراء -->
                             <input type="hidden" name="action" value="add">
-                            <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
-                            <button type="submit" class="btn-cart" name="add_to_cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                                أضف للسلة</button>
+                            
+                            <!-- رقم المنتج -->
+                            <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
+                            
+                            <!-- الكمية الافتراضية عند الضغط من الكرت هي 1 -->
+                            <input type="hidden" name="quantity" value="1">
+
+                            <!-- زر الإضافة -->
+                            <button type="submit" name="add_to_cart" class="btn-cart">
+                                أضف للسلة 🛍️
+                            </button>
                         </form>
+
                     </div>
                 </div>
             <?php endwhile; ?>
